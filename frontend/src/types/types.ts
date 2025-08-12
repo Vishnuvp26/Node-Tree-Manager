@@ -22,3 +22,7 @@ export interface NodeProps {
     onDelete: (id: string) => void;
     onDataChange: () => void;
 }
+
+export interface SkeletonLoaderProps {
+    rows?: number;
+}

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Tree from "@/components/tree/Tree";
 import { getTree } from "@/api/node.api";
+import SkeletonLoader from "@/components/skeleton/Skeleton";
 
 const Home = () => {
     const [showInput, setShowInput] = useState(false);
@@ -72,6 +73,8 @@ const Home = () => {
                         />
                     </motion.div>
                 )}
+
+                {loading && <SkeletonLoader rows={8} />}
 
                 {!loading && treeData.length > 0 && (
                     <Tree data={treeData} onDataChange={fetchTreeData} />
