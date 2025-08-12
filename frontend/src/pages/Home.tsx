@@ -17,8 +17,8 @@ const Home = () => {
 
     const fetchTreeData = async () => {
         try {
-            const data = await getTree();
-            setTreeData(data);
+            const res = await getTree();
+            setTreeData(Array.isArray(res) ? res : res.data || []);
         } catch (error) {
             console.error("Failed to fetch tree data:", error);
         } finally {
