@@ -101,7 +101,7 @@ const Tree = ({ data, onDataChange }: TreeProps) => {
     };
 
     return (
-        <div className="w-full max-w-2xl mt-8 bg-zinc-900 rounded-lg p-4 overflow-x-auto sm:overflow-x-visible">
+        <div className="w-full max-w-4xl mt-8 bg-zinc-900 rounded-lg p-4 overflow-x-auto sm:overflow-x-visible">
             {data.map((node) => (
                 <TreeNode
                     key={node._id}

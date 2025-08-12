@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { toast } from "sonner";
 import { createNode } from "@/api/node.api";
+import { Loader2 } from "lucide-react";
 
 interface InputFeildProps {
     onCancel: () => void;
@@ -66,11 +67,18 @@ const InputFeild = ({ onCancel, onSuccess, parentId }: InputFeildProps) => {
             <div className="flex justify-end gap-2 sm:gap-2 w-full sm:w-auto">
                 <Button
                     variant="secondary"
-                    className="min-h-[40px] sm:min-h-[52px] text-sm sm:text-base"
+                    className="min-h-[40px] sm:min-h-[52px] text-sm sm:text-base flex items-center gap-2"
                     onClick={handleSubmit}
                     disabled={loading}
                 >
-                    {loading ? "Adding..." : "Add"}
+                    {loading ? (
+                        <>
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            Adding...
+                        </>
+                    ) : (
+                        "Add"
+                    )}
                 </Button>
                 <Button
                     variant="destructive"
